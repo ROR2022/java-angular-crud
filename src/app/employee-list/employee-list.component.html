@@ -1,0 +1,44 @@
+<h2 class="text-center mt-5 mb-3">Employees List</h2>
+
+<div class="container">
+  <table class="table table-striped mb-5">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email ID</th>
+        <th scope="col">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of employees; track $index) {
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.firstName }}</td>
+        <td>{{ item.lastName }}</td>
+        <td>{{ item.emailId }}</td>
+        <td class="d-flex gap-2">
+          <button class="btn btn-info" (click)="onEdit(item)">
+            <fa-icon [icon]="faEdit"></fa-icon>
+          </button>
+          <button type="button" class="btn btn-danger" (click)="onDelete(item)">
+            <fa-icon [icon]="faTrash"></fa-icon>
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  @if(selectedEmployee){
+    <h6 class="text-center text-danger my-2">Are you sure you want to delete this employee?</h6>
+    <app-form-employee [employee]="selectedEmployee" [isDeleteMode]="true" (dataFormValues)="deleteEmployee($event)"></app-form-employee>
+    <div class="d-flex gap-2">
+      <button class="btn btn-secondary" (click)="this.selectedEmployee=null">Cancel</button>
+      <button class="btn btn-danger" (click)="deleteEmployee(selectedEmployee)">Delete</button>
+  </div>
+  }
+</div>
+
+
+

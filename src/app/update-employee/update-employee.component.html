@@ -1,0 +1,6 @@
+<div class="mt-5">
+  <h2 class="text-center">Update Employee</h2>
+  @if (employee) {
+    <app-form-employee [employee]="employee" (dataFormValues)="updateEmployee($event)"></app-form-employee>
+  }
+</div>

@@ -1,0 +1,51 @@
+<div class="container">
+  <form [formGroup]="formEmployee" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="exampleInputId" class="form-label">ID</label>
+      <input
+        type="number"
+        class="form-control"
+        id="exampleInputId"
+        formControlName="id"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputName" class="form-label">First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputName"
+        formControlName="firstName"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputAge" class="form-label">Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputAge"
+        formControlName="lastName"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        formControlName="emailId"
+      />
+    </div>
+    @if(!isDeleteMode) {
+      <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="formEmployee.pristine"
+    >
+      Submit
+    </button>
+    }
+
+  </form>
+</div>
